@@ -131,6 +131,15 @@ class FlutterDatawedgePlugin: FlutterPlugin, MethodCallHandler, StreamHandler {
     intentConfig.putBundle("PARAM_LIST", intentProps)
     profileConfig.putBundle("PLUGIN_CONFIG", intentConfig)
 
+    val keystrokeConfig = Bundle()
+    intentConfig.putString("PLUGIN_NAME", "KEYSTROKE")
+    intentConfig.putString("RESET_CONFIG", "true")
+
+    val keystrokeProps = Bundle()
+    keystrokeProps.putString("keystroke_output_enabled", "false")
+    keystrokeConfig.putBundle("PARAM_LIST", keystrokeProps)
+    profileConfig.putBundle("PLUGIN_CONFIG", keystrokeConfig)
+
     dwInterface.sendCommandBundle(context, DWInterface.ACTION_SET_CONFIG, profileConfig)
   }
 
